@@ -29,7 +29,6 @@ const dashboardReducer = (state = initialState, action) => {
     let favorites;
     switch (action.type) {
         case types.SEARCH_LOCATION: {
-            console.log('hit reducer')
             const city = action.payload.data.city
             const stateName = action.payload.data.state
             const country = action.payload.data.country
@@ -47,14 +46,11 @@ const dashboardReducer = (state = initialState, action) => {
             currentWindSpeed: wind
             }
         
-        console.log('updated state: ', newState)
         return newState
         }
         //sarah and ammar did store_userinfo
         case types.STORE_USERINFO: {
-            console.log('Payload: ', action.payload);
             const {userId, nickname, city, state, country, favorites } = action.payload;
-            console.log(state);
             return {
                 ...state,
                 userId,
@@ -67,7 +63,6 @@ const dashboardReducer = (state = initialState, action) => {
         }
 
         case types.ADD_FAVORITE: {
-            console.log("reducerPL: ", action.payload);
             const favoriteId = action.payload.favorite_id; // is this in the response object from API ??
             const favoriteCity = action.payload.city;
             const favoriteStateName = action.payload.state;
@@ -95,7 +90,6 @@ const dashboardReducer = (state = initialState, action) => {
                 favorites: state.favorites.concat(favObj) // can we .concat an obj onto an array ? .concat accepts arrays
                 };
             
-            console.log('updated state: ', newState);
             return newState;
         }
 

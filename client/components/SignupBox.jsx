@@ -26,13 +26,10 @@ class SignupBox extends Component{
     fetch(`http://api.airvisual.com/v2/nearest_city?key=46e1ef73-d2e8-42a6-811e-c17a1e960b1f`)
       .then(data => data.json())
       .then((data) => {
-        console.log('data: ', data);
         // searchForLocation(data)
         signupObject.state = data.data.state;
         signupObject.city = data.data.city;
         signupObject.country = data.data.country;
-        console.log('updated obj', signupObject)
-
         fetch(url, { // <- returns a response asynchronously
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           // mode: 'no-cors',
@@ -44,10 +41,6 @@ class SignupBox extends Component{
           body: JSON.stringify(signupObject) // body data type must match "Content-Type" header
         })
         .then((response) => {
-          if (response.status !== 200) {
-            // console.log(response);
-            console.log('Signup Error');
-          }
           return response.json();
         })
         .then((data) => {

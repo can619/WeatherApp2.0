@@ -29,7 +29,6 @@ const RemoveFavButton = (props) => {
       if (response.status == 200) {
         // remove the city from the favorites array in the state
         //add dispatch here
-        console.log('WE MADE IT')
         this.props.dispatchDeleteFavorite(data.favorites_id);
       }
     })

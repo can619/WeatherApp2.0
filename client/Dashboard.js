@@ -10,7 +10,6 @@ import { Navigate } from 'react-router-dom'
 
 const mapStateToProps = state => { 
     //redux state
-    console.log('state: ', state)
     return {
     // add pertinent state here
     userId: state.main.userId,
@@ -38,8 +37,6 @@ const mapDispatchToProps = dispatch => ({
 
 const Dashboard = (props) => {
 
-  console.log('PROPS: ', props);
-
   const addToFavorites = () => {
     fetch('/user/setFavorites', {    //determine where to send after setting up backend routes in controller
         method: 'POST',
@@ -55,7 +52,6 @@ const Dashboard = (props) => {
     })
     .then(data => data.json())
     .then(data => {
-        console.log("57 DATA: ", data) // <<<<<<<---------- we want to seee this
         //invoke dispatch here
         // use a for loop to iterate thru data and pass to dispAddFav on each iter
         //let lastFav = data[data.length - 1];
@@ -83,7 +79,6 @@ this is favorites
   // iterate through array of favorites from the state
   const favComponents = [];
 
-  console.log('favorites.length: ', props.favorites.length);
 
   for (let i = 0; i < props.favorites.length; i++) {
     const favoritePlace = props.favorites[i] // <- current favorite {city: '' , state: ''}

@@ -12,7 +12,6 @@ import * as actions from '../actions/actions'
 
 const mapStateToProps = state => { 
     //redux state
-    console.log('state: ', state)
     return {
     // add pertinent state here
     userId: state.main.userId,
@@ -75,7 +74,6 @@ const FavWeather = (props) => {
         fetch(`http://api.airvisual.com/v2/city?city=${favoritePlace.city}&state=${favoritePlace.state}&country=${favoritePlace.country}&key=46e1ef73-d2e8-42a6-811e-c17a1e960b1f`)
         .then(data => data.json())
         .then((data) => {
-            console.log('data: ', data);
             // we need to update state with API fetch results here
             // let badPollution = false;
 
@@ -88,7 +86,6 @@ const FavWeather = (props) => {
 
             props.dispatchApiAppendFavs(dispatchData);
 
-            console.log('DISPATCH DATA: ', dispatchData);
             //pass dispacth data to userFavorites
             // use index to figure out which element of favorites[] to update with weather
             // this.props.dispatchUpdateFavorites()
@@ -97,7 +94,6 @@ const FavWeather = (props) => {
     }
 
     const color = getAQIColor(props.favorites[props.favPlaceIndex].currentAQI);
-    console.log('COLOR IS: ', color);
 
     if (props.favorites[props.favPlaceIndex].currentAQI > 50) {
         badPollution = true;

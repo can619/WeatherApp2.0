@@ -34,7 +34,6 @@ class LoginBox extends Component {
   }
 
   onSubmit(event) {
-    console.log('Inside onSubmit')
     event.preventDefault();
     // make a post request to server backend /login with username and password in the request body
     const port = 3000 // process.env.NODE_ENV === 'development' ? 3000 : 8080;
@@ -55,14 +54,11 @@ class LoginBox extends Component {
       body: JSON.stringify(loginObject) // body data type must match "Content-Type" header
     })
       .then((response) => {
-        // console.log(response);
         fetchStatus = response.status;
         return response.json();
       })
       .then((data) => {
-        console.log('data: ', data);
         if (fetchStatus === 200) {
-          console.log('login successful');
           this.setState({ ...this.state, loggedIn: true });
           // store username in state
           // data.users.username
@@ -113,7 +109,6 @@ class LoginBox extends Component {
   // }
   
   render() {
-    console.log('loggedIn: ', this.state.loggedIn)
     return this.state.loggedIn ? <Navigate to="/dashboard" /> : (
       <div id="LoginBox">
         <h1 id='loginHeader'>Breathe Better Air™</h1>

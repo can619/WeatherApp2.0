@@ -6,7 +6,6 @@ const apiCall = (city, state, country, dispatchSearchLocation) => {
     fetch(`http://api.airvisual.com/v2/city?city=${city}&state=${state}&country=${country}&key=46e1ef73-d2e8-42a6-811e-c17a1e960b1f`)
     .then(data => data.json())
     .then((data) => {
-        console.log('data: ', data);
         // searchForLocation(data)
         dispatchSearchLocation(data);
     })
@@ -20,7 +19,6 @@ const SearchBar = (props) => {
         let state = document.getElementById("state").value;
         // console.log('state: ', state)
         let country = document.getElementById("country").value;
-        console.log('COUNTRY IS: ', country);
         // let country = 'USA'
         apiCall(city, state, country, props.dispatchSearchLocation);
     }
