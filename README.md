@@ -1,2 +1,2 @@
 # scratch-project-weatherapp
-weather and allergens crud app plus user login
+weather and allergens crud app plus user login app
