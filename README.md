@@ -22,4 +22,17 @@ An air quality and weather application that allows users to track and favorite r
 
 ## How to run Weather App
 
-`npm run dev`
+```
+click Fork to fork the repo
+
+go to Code button and copy the HTTPS link
+
+git clone <paste the link here>
+
+cd WeatherApp2.0
+
+npm install
+
+npm run dev
+
+```
